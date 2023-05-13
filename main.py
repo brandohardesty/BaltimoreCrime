@@ -21,9 +21,11 @@ def main():
  'ROBBERY - CARJACKING':.65, 'ASSAULT BY THREAT':.75, 'RAPE':1}
     
     colorMap = mpc.ListedColormap(["yellow","blue","orange","wheat","darkblue","tomato","darkred","olive","greenyellow","green","darkgreen","red","peru","slateblue","salmon"])
+    plt.register_cmap('myMap', colorMap)
 
     figure, axis = plt.subplots()
     scatter = axis.scatter(longitude, latitude,c=type.map(typeMap), s=4, cmap=colorMap,marker='o')
+    mat = np.random.random((0,1))
 
     print("Type")
     print(type[0:10])
@@ -31,6 +33,9 @@ def main():
     print(type.map(typeMap)[0:10])
     print("Color Mapped")
     print(colorMap(type.map(typeMap))[0:10])
+    plt.colorbar(scatter)
+    plt.show()
+
 
 
 
